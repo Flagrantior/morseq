@@ -1,5 +1,6 @@
 #/bin/bash
-
+# flagrantior@gmail.com
+# Script for train your Morse knowledge
 
 morze=(
 	A ".-"
