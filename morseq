@@ -69,6 +69,7 @@ NC="\033[0m"
 printf "
 1) Morse to symbol
 2) Symbol to Morse
+
 MODE: "
 read -n1 mode;
 printf "\n"
