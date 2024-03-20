@@ -2,21 +2,6 @@
 # flagrantior@gmail.com
 # Script for train your Morse knowledge
 
-printf "
-A .-    N -.    0 -----
-B -...  O ---   1 .----
-C -.-.  P .--.  2 ..---
-D -..   Q --.-  3 ...--
-E .     R .-.   4 ....-
-F ..-.  S ...   5 .....
-G --.   T -     6 -....
-H ....  U ..-   7 --...
-I ..    V ...-  8 ---..
-J .---  W .--   9 ----.
-K -.-   X -..-  . .-.-.-
-L .-..  Y -.--  , --..--
-M --    Z --..  ? ..--..
-"
 
 morze=(
 	A ".-"
@@ -74,7 +59,21 @@ MODE: "
 read -n1 mode;
 printf "\n"
 case $mode in
-	1)
+	1) printf "
+.    E   -    T   .----  1
+..   I   --   M   ..---  2
+...  S   ---  O   ...--  3
+.... H   --.  G   ....-  4
+...- V   --.- Q   .....  5
+..-  U   --.. Z   -....  6
+..-. F   -.   N   --...  7
+.-   A   -.-  K   ---..  8
+.-.  R   -.-- Y   ----.  9
+.-.. L   -.-. C   .-.-.- .
+.--  W   -..  D   --..-- ,
+.--. P   -..- X   ..--.. ?
+.--- J   -... b   -----  0
+\n"
 	stty -echo
 	while true; do
 		let l=$(( $(shuf -i 1-${#morze[*]} -n 1) -1 )); l=$(( l - l%2 ))
@@ -84,7 +83,7 @@ case $mode in
 			indent=$(( indent-1 ))
 			case "$c" in
 				.) play -qn synth .05 sin 440;;
-				-) play -qn synth .2 sin 440;;
+				-) play -qn synth .20 sin 440;;
 			esac
 		done < <(echo -n "${morze[l+1]}")
 
@@ -92,12 +91,28 @@ case $mode in
 		a=${a^^}
 		if [[ $a == ${morze[l]} ]]; then
 			printf "%${indent}s${GREEN}$a${NC}\n"
+			play -qn synth .03 sin 880
 		else
 			printf "%${indent}s${RED}$a${NC} ${morze[l]}\n"
+			play -qn synth .1 sin 220
 		fi
 	done ;;
 
-	2)
+	2) printf "
+A .-    N -.    0 -----
+B -...  O ---   1 .----
+C -.-.  P .--.  2 ..---
+D -..   Q --.-  3 ...--
+E .     R .-.   4 ....-
+F ..-.  S ...   5 .....
+G --.   T -     6 -....
+H ....  U ..-   7 --...
+I ..    V ...-  8 ---..
+J .---  W .--   9 ----.
+K -.-   X -..-  . .-.-.-
+L .-..  Y -.--  , --..--
+M --    Z --..  ? ..--..
+\n"
 	while true; do
 		let l=$(( $(shuf -i 1-${#morze[*]} -n 1) -1 )); l=$(( l - l%2 ))
 		printf -- "${morze[l]} "
