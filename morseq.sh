@@ -52,8 +52,8 @@ NC="\033[0m"
 
 printf "
 0) print alphabet
-1) Morze to letter
-2) letter to Morze
+1) Morse to letter
+2) letter to Morse
 
 MODE: "
 read -n1 mode;
