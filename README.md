@@ -1,5 +1,5 @@
 # -- --- .-. ... . --.- Morseq
-Bash script for train your Morse knowledge.
+Bash script for train your Morse code knowledge.
 ```
 > morseq
 
